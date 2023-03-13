@@ -71,6 +71,7 @@ class BaseSpider(object):
         Returns:
             str: 获取到的网站HTML代码
         """
+        requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += 'AES128'
         response = requests.get(url, headers=self.headers, proxies=proxies)
         if encoding:
             response.encoding = encoding
